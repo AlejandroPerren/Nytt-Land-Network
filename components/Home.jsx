@@ -5,6 +5,7 @@ import "aos/dist/aos.css";
 import StartScreen from "./Home/StartScreen/StartScreen";
 import ResponsiveNav from "./NavBar/ResponsiveNavBar";
 import Hero from "./Home/Hero/Hero";
+import Header from "./Home/Header/Header";
 
 const Home = () => {
   const [started, setStarted] = useState(false);
@@ -27,6 +28,7 @@ const Home = () => {
       {!started && <StartScreen onStart={() => setStarted(true)} />}
       {started && (
         <>
+          <Header />
           <ResponsiveNav />
           <Hero />
         </>
