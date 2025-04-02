@@ -18,7 +18,7 @@ export default function LoginForm() {
   const [error, setError] = useState("");
 
   const onSubmit = async (data) => {
-    const res = await fetch("/api/auth/login", {
+    const res = await fetch("https://nytt-land.onrender.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
