@@ -7,8 +7,8 @@ import { CgClose } from "react-icons/cg";
 
 const navLinks = [
   { id: 1, label: "Inicio", url: "#" },
-  { id: 2, label: "Servicios", url: "#servicios" },
-  { id: 3, label: "Contacto", url: "#contacto" },
+  { id: 2, label: "Mapa", url: "#servicios" },
+  { id: 3, label: "Noticias", url: "#contacto" },
 ];
 
 const Nav = ({ openNav }) => {
@@ -25,7 +25,7 @@ const Nav = ({ openNav }) => {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="#">
-          <h1 className="text-white text-2xl font-bold">MiWeb</h1>
+          <h1 className="text-white text-2xl font-bold">NyttLand</h1>
         </Link>
         {/* Links */}
         <div className="hidden md:flex space-x-6">

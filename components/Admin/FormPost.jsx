@@ -47,19 +47,47 @@ export default function PostForm({ post }) {
   };
 
   return (
-    <form onSubmit={handleSubmit(submitHandler)}>
-      <input type="text" {...register("title")} placeholder="Título" />
-      <p>{errors.title?.message}</p>
+<form onSubmit={handleSubmit(submitHandler)} className="bg-white p-6 shadow-lg rounded-lg w-full max-w-md">
+  <h2 className="text-xl font-bold mb-4">{post ? "Editar Publicación" : "Nueva Publicación"}</h2>
 
-      <textarea {...register("content")} placeholder="Contenido" />
-      <p>{errors.content?.message}</p>
+  <label className="block mb-2">
+    <span className="text-gray-700">Título</span>
+    <input
+      type="text"
+      {...register("title")}
+      className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Título del post"
+    />
+    <p className="text-red-500">{errors.title?.message}</p>
+  </label>
 
-      <input type="text" {...register("imageUrl")} placeholder="URL de la imagen" />
-      <p>{errors.imageUrl?.message}</p>
+  <label className="block mb-2">
+    <span className="text-gray-700">Contenido</span>
+    <textarea
+      {...register("content")}
+      className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Contenido del post"
+    ></textarea>
+    <p className="text-red-500">{errors.content?.message}</p>
+  </label>
 
-      <button type="submit">{post ? "Actualizar" : "Publicar"}</button>
+  <label className="block mb-2">
+    <span className="text-gray-700">URL de la Imagen</span>
+    <input
+      type="text"
+      {...register("imageUrl")}
+      className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="https://..."
+    />
+    <p className="text-red-500">{errors.imageUrl?.message}</p>
+  </label>
 
-      {error && <p>{error}</p>}
-    </form>
+  <button type="submit" className="w-full mt-3 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+    {post ? "Actualizar" : "Publicar"}
+  </button>
+
+  {error && <p className="text-red-500 mt-2">{error}</p>}
+</form>
+
   );
 }

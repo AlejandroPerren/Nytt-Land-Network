@@ -9,6 +9,8 @@ import Header from "./Home/Header/Header";
 import Donations from "./Donations/donations";
 import Footer from "./Footer/Footer";
 
+import SocialModal from "./ModalDev/SocialModalDev";
+
 const Home = () => {
   const [started, setStarted] = useState(false);
 
@@ -33,8 +35,10 @@ const Home = () => {
           <Header />
           <ResponsiveNav />
           <Hero />
-          <Donations/>
-          <Footer/>
+          <Donations />
+          <Footer />
+
+          <SocialModal />
         </>
       )}
     </div>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 
 const Donations = () => {
   useEffect(() => {
@@ -10,8 +11,13 @@ const Donations = () => {
   return (
     <aside data-aos="fade-up">
       <div className="bg-gray-900 text-white p-6 rounded-2xl shadow-lg max-w-lg mx-auto">
-        <h3 className="text-2xl font-bold mb-4">Donaciones</h3>
-        <p className="mb-3">
+        <Image 
+        src="/img/banners/donaciones.png"
+        width={600}
+        height={200}
+        alt="donaciones"
+        />
+        <p className="my-3">
           Las donaciones no son obligatorias, pero son una gran ayuda para mantener el servidor online, funcionando sin interrupciones y mejorando cada día. 
         </p>
         <p className="mb-3">

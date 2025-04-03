@@ -35,20 +35,29 @@ export default function PostList() {
 
   const getGoogleDriveImageUrl = (url) => {
     const match = url.match(/[-\w]{25,}/);
-    return match ? `https://drive.google.com/uc?export=view&id=${match[0]}` : url;
+    return match
+      ? `https://drive.google.com/thumbnail?id=${match[0]}&sz=w1000`
+      : url;
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
       {error && <p className="text-red-500">{error}</p>}
       {posts.map((post) => (
-        <div key={post.id} className="border p-4 rounded-lg shadow-lg bg-white">
+        <div
+          key={post.id}
+          className="border p-4 rounded-lg shadow-lg bg-white transition-transform hover:scale-105"
+        >
           <h2 className="text-xl font-bold">{post.title}</h2>
           <p className="text-gray-600">{post.content}</p>
-          <img src={getGoogleDriveImageUrl(post.imageUrl)} alt={post.title} className="w-full h-40 object-cover mt-2 rounded" />
+          <img
+            src={getGoogleDriveImageUrl(post.imageUrl)}
+            alt={post.title}
+            className="w-full h-40 object-cover mt-2 rounded"
+          />
           <button
             onClick={() => handleDelete(post.id)}
-            className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+            className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full"
           >
             Eliminar
           </button>
