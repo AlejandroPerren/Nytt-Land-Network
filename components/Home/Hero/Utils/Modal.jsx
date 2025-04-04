@@ -14,8 +14,8 @@ const Modal = ({ text, onClose, title }) => {
         >
           ✖
         </button>
-        <h2 className="text-3xl font-bold mb-4 text-blue-400">Información</h2>
-        <p className="text-lg text-gray-300 leading-relaxed">{text}</p>
+        <h2 className="text-3xl font-bold mb-4 text-blue-400">{title}</h2>
+        <p className="text-lg text-gray-300 text-justify leading-relaxed">{text}</p>
       </div>
     </div>
   );

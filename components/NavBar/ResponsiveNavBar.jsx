@@ -25,12 +25,12 @@ const Nav = ({ openNav }) => {
       <div className="flex items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="#">
-          <h1 className="text-white text-2xl font-bold">NyttLand</h1>
+          <h1 className="text-white text-2xl font-bold"></h1>
         </Link>
         {/* Links */}
         <div className="hidden md:flex space-x-6">
           {navLinks.map((link) => (
-            <Link key={link.id} href={link.url} className="text-white hover:text-gray-300">
+            <Link key={link.id} href={link.url} className="text-white font-extrabold hover:text-gray-300">
               {link.label}
             </Link>
           ))}
@@ -46,9 +46,9 @@ const MobileNav = ({ showNav, closeNav }) => {
   return (
     <div className={`fixed inset-0 bg-black bg-opacity-75 transition-transform ${showNav ? "translate-x-0" : "-translate-x-full"} z-50`}>
       <div className="p-6 flex flex-col space-y-6 text-white">
-        <CgClose onClick={closeNav} className="text-3xl cursor-pointer self-end" />
+        <CgClose onClick={closeNav} className="text-3xl font-extrabold cursor-pointer self-end" />
         {navLinks.map((link) => (
-          <Link key={link.id} href={link.url} className="text-xl" onClick={closeNav}>
+          <Link key={link.id} href={link.url} className="text-xl font-extrabold " onClick={closeNav}>
             {link.label}
           </Link>
         ))}

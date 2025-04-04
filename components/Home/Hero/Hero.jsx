@@ -8,7 +8,7 @@ const Hero = () => {
   const [modalContent, setModalContent] = useState(null);
 
   return (
-    <section className="text-center py-12">
+    <section className="text-center py-12" id="hero">
       <div data-aos="fade-up" className="mb-8">
         <h1 className="text-4xl md:text-6xl font-bold text-white">
           ¡Bienvenido a Nytt Land!
@@ -23,14 +23,21 @@ const Hero = () => {
           <Card
             key={index}
             {...section}
-            onOpenModal={(content) => setModalContent(content)}
+            onOpenModal={() => setModalContent({ title: section.title, text: section.text })}
           />
         ))}
       </div>
 
-      {modalContent && <Modal text={modalContent} onClose={() => setModalContent(null)} />}
+      {modalContent && (
+        <Modal
+          title={modalContent.title}
+          text={modalContent.text}
+          onClose={() => setModalContent(null)}
+        />
+      )}
     </section>
   );
 };
+
 
 export default Hero;

@@ -13,7 +13,7 @@ const Card = ({ title, image, text, onOpenModal, onDelete, children }) => {
         </button>
       )}
 
-      <div className="h-40 w-full overflow-hidden">
+      <div className="h-full w-full overflow-hidden">
         <img src={image} alt={title} className="w-full h-full object-cover" />
       </div>
 
@@ -27,7 +27,7 @@ const Card = ({ title, image, text, onOpenModal, onDelete, children }) => {
           onClick={() => onOpenModal(text)}
           className="mt-4 bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition w-fit"
         >
-          Read More
+          Leer Mas
         </button>
 
         <div className="mt-2">{children}</div>
