@@ -8,7 +8,13 @@ export default function PostList() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
   const [modalContent, setModalContent] = useState(null);
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState(null); 
+
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    setToken(storedToken);
+  }, []);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -57,8 +63,7 @@ export default function PostList() {
             image={getGoogleDriveImageUrl(post.imageUrl)}
             onOpenModal={() => setModalContent(post.content)}
             {...(token ? { onDelete: () => handleDelete(post.id) } : {})}
-          >
-          </Card>
+          />
         ))}
       </div>
       {modalContent && (
