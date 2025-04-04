@@ -25,8 +25,10 @@ const Home = () => {
 
   return (
     <div className="relative min-h-screen">
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[url('/img/fondo.jpg')] bg-cover bg-center" />
+      <div
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-top bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/img/fondo.jpg')" }}
+      >
         <div className="absolute inset-0 bg-gradient-to-b from-transparent" />
       </div>
 
