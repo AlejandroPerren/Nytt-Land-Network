@@ -26,9 +26,11 @@ const Donations = () => {
         <p className="mb-5">
           Puedes donar usando tu medio de pago favorito de forma fácil y segura. ¡Cada aporte cuenta y se agradece muchísimo!
         </p>
+        <a href="https://cafecito.app/nyttland">
         <button className="bg-yellow-500 text-gray-900 px-6 py-2 rounded-xl font-semibold hover:bg-yellow-600 transition">
           Donar
         </button>
+        </a>
       </div>
     </aside>
   );

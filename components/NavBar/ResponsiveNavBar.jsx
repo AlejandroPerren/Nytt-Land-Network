@@ -6,9 +6,9 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 import { CgClose } from "react-icons/cg";
 
 const navLinks = [
-  { id: 1, label: "Inicio", url: "#" },
-  { id: 2, label: "Mapa", url: "#servicios" },
-  { id: 3, label: "Noticias", url: "#contacto" },
+  { id: 1, label: "Inicio", url: "/" },
+  { id: 2, label: "Mapa", url: "/mapa" },
+  { id: 3, label: "Noticias", url: "/noticias" },
 ];
 
 const Nav = ({ openNav }) => {

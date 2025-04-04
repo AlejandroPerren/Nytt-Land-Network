@@ -1,10 +1,14 @@
 "use client";
 import Card from "./Utils/Card";
 import sections from "@/data/data";
+import { useState } from "react";
+import Modal from "./Utils/Modal";
 
 const Hero = () => {
+  const [modalContent, setModalContent] = useState(null);
+
   return (
-    <section className="text-center py-12 ">
+    <section className="text-center py-12">
       <div data-aos="fade-up" className="mb-8">
         <h1 className="text-4xl md:text-6xl font-bold text-white">
           ¡Bienvenido a Nytt Land!
@@ -14,11 +18,17 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3  gap-6">
+      <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sections.map((section, index) => (
-          <Card key={index} {...section} />
+          <Card
+            key={index}
+            {...section}
+            onOpenModal={(content) => setModalContent(content)}
+          />
         ))}
       </div>
+
+      {modalContent && <Modal text={modalContent} onClose={() => setModalContent(null)} />}
     </section>
   );
 };

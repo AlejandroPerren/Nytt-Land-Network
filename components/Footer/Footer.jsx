@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <a href="#" className="text-blue-400 hover:text-blue-500 transition">
+          <a href="https://discord.gg/3XjNePAmYn" className="text-blue-400 hover:text-blue-500 transition">
             Discord
           </a>
         </div>

@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Home/Header/Header";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +17,11 @@ export const metadata = {
   description: "Pagina Oficial de tu Servidor de Minecraft Favorito",
 };
 
+
+
 export default function RootLayout({ children }) {
+
+
   return (
     <html lang="en">
       <body

@@ -37,7 +37,6 @@ const Home = () => {
           <Hero />
           <Donations />
           <Footer />
-
           <SocialModal />
         </>
       )}

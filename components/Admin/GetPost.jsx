@@ -1,10 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import Card from "../Home/Hero/Utils/Card";
+import Modal from "../Home/Hero/Utils/Modal";
 
 export default function PostList() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
+  const [modalContent, setModalContent] = useState(null);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -24,7 +28,7 @@ export default function PostList() {
     try {
       const res = await fetch(`https://nytt-land.onrender.com/posts/${id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Error al eliminar el post");
       setPosts(posts.filter((post) => post.id !== id));
@@ -41,28 +45,25 @@ export default function PostList() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-      {error && <p className="text-red-500">{error}</p>}
-      {posts.map((post) => (
-        <div
-          key={post.id}
-          className="border p-4 rounded-lg shadow-lg bg-white transition-transform hover:scale-105"
-        >
-          <h2 className="text-xl font-bold">{post.title}</h2>
-          <p className="text-gray-600">{post.content}</p>
-          <img
-            src={getGoogleDriveImageUrl(post.imageUrl)}
-            alt={post.title}
-            className="w-full h-40 object-cover mt-2 rounded"
-          />
-          <button
-            onClick={() => handleDelete(post.id)}
-            className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full"
+    <div className="relative min-h-screen bg-gray-100">
+      <div className="absolute inset-0 bg-[url('/img/background.png')] bg-cover bg-center opacity-50"></div>
+      <div className="relative z-10 p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {error && <p className="text-red-500">{error}</p>}
+        {posts.map((post) => (
+          <Card
+            key={post.id}
+            title={post.title}
+            text={post.content}
+            image={getGoogleDriveImageUrl(post.imageUrl)}
+            onOpenModal={() => setModalContent(post.content)}
+            {...(token ? { onDelete: () => handleDelete(post.id) } : {})}
           >
-            Eliminar
-          </button>
-        </div>
-      ))}
+          </Card>
+        ))}
+      </div>
+      {modalContent && (
+        <Modal text={modalContent} onClose={() => setModalContent(null)} />
+      )}
     </div>
   );
 }
