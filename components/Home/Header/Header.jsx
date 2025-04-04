@@ -11,9 +11,6 @@ const Header = () => {
   };
   return (
     <div className="relative w-full h-240 text-center flex flex-col justify-center items-center space-y-6">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black"></div>
-
-      <div className="absolute inset-0 bg-[url('/img/background.png')] bg-cover bg-center"></div>
 
       <div className="relative z-10 flex justify-center">
         <Image
