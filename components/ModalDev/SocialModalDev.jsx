@@ -27,15 +27,14 @@ const SocialModal = () => {
 
   return (
     <>
-      {/* Botón flotante */}
+
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-5 right-5 bg-blue-600 text-white px-4 py-2 flex items-center gap-2 rounded-full shadow-lg hover:bg-blue-700 transition-transform hover:scale-110"
+        className="fixed bottom-20 right-5 bg-blue-600 text-white px-4 py-2 flex items-center gap-2 rounded-full shadow-lg hover:bg-blue-700 transition-transform hover:scale-110"
       >
         <AiOutlineShareAlt className="text-xl" /> Dev
       </button>
 
-      {/* Modal */}
       {isOpen && (
         <div
           id="modal-background"
@@ -46,7 +45,6 @@ const SocialModal = () => {
             className="bg-black bg-opacity-20 p-4 rounded-lg shadow-lg max-w-[90%] w-80 md:w-96 text-center relative border border-gray-700"
             data-aos="zoom-in"
           >
-            {/* Botón cerrar pequeño */}
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-transform hover:scale-110"
@@ -63,12 +61,9 @@ const SocialModal = () => {
               className="mx-auto rounded-full w-90 h-50"
             />
 
-            {/* Título */}
             <h2 className="text-lg font-semibold mt-2 text-white" data-aos="fade-up">
               Mis Redes
             </h2>
-
-            {/* Enlaces más juntos */}
             <div className="flex flex-col gap-2 mt-2">
               <a 
                 href="https://github.com/AlejandroPerren" 
