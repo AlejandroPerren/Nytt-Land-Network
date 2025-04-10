@@ -7,7 +7,7 @@ import { CgClose } from "react-icons/cg";
 
 const navLinks = [
   { id: 1, label: "Inicio", url: "/" },
-  { id: 2, label: "Mapa", url: "/mapa" },
+  { id: 2, label: "Mapa", url: "http://190.244.150.101:8080/", external: true },
   { id: 3, label: "Noticias", url: "/noticias" },
 ];
 
